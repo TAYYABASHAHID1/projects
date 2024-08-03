@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+    <div id="main" style="  padding: 20px;border: 2px solid rgb(77, 19, 19); border-radius: 2%;height:350px; width: 350px; align-items: center;background-color: rgb(140, 177, 158);">
+<button id="add" onclick="button()" style="background-color: #7d914f; color:black;height: 50px;width:80px;border-radius: 12%;">Add Item</button>
+<img id="image"></img>
+
+</div>
+
+    <script>
+var btn=document.getElementById("add")
+function button(){
+  var itemName=prompt("enter item name");
+  var itemDescription=prompt("enter item's description");
+  var itemPrice=prompt("enter item's price");
+  var itemurl=prompt("enter item's url");
+  var div=document.getElementById("main");
+
+div.innerHTML=`
+  <div class="container">
+    <h4  ><b>item name:- ${itemName}</b></h4> 
+    <p><b>item description:-${itemDescription}</b></p> 
+    <h3>price:-PKR ${itemPrice}</h3>
+    <img style="height:200px; width:200px;"src='${itemurl}'><img/>
+    </div>
+  `
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

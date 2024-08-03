@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/df8a27e888.js" crossorigin="anonymous"></script>
+    <style>
+
+       * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #B3CBB9;
+            text-align: center;
+        }
+ 
+
+        .heading {
+            margin-top: 1rem;
+        }
+
+        .box:hover {
+            background-color: lightgray;
+        }
+
+        .main {
+            min-height: 70vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vh;
+        }
+
+        .box {
+            height: 18vmin;
+            width: 18vmin;
+            border-radius: 1rem;
+            border: none;
+            font-size: 8vmin;
+            color: #84A9C0;
+        }
+
+        .reset {
+            margin-top: 2rem;
+            padding: 1rem;
+            color: #6A66A3;
+            font-size: 1.25rem;
+            align-items: center;
+            background-color: #DDD8B8;
+            border: none;
+        }
+
+        .msg-container {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .msg-container.show {
+            display: block;
+        }
+
+        .msg {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        #back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: x-large;        }
+    </style>
+</head>
+<body>
+    <a href="/index.html"> <i class="fa-solid fa-circle-left" id="back"></i></a>
+    <div class="main">
+        <h1 class="heading">Tic-Tac-Toe</h1>
+        <div class="container">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+        <button class="reset" id="reset-btn">Restart</button>
+        <div class="msg-container">
+            <p class="msg" id="msg"></p>
+        </div>
+    </div>
+
+    <script>
+var first=prompt("take 1st initial ")
+var second=prompt("take 2nd initial")
+        let boxes = document.querySelectorAll(".box");
+        let resetBtn = document.querySelector("#reset-btn");
+        let msgContainer = document.querySelector(".msg-container");
+        let msg = document.querySelector("#msg");
+
+    
+        const winPatterns = [
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [3, 4, 5],
+            [6, 7, 8],
+        ];
+
+
+        let checkWinner = () => {
+            for (let pattern of winPatterns) {
+                let [a, b, c] = pattern;
+                if (boxes[a].innerText && boxes[a].innerText === boxes[b].innerText && boxes[a].innerText === boxes[c].innerText) {
+                    return boxes[a].innerText;
+                }
+            }
+            return null;
+        };
+
+       let gameDraw = () => {
+            msgContainer.classList.add("show");
+            msg.innerText = "It's a draw! Try again..";
+        };
+
+        const resetGame = () => {
+            turnO = true;
+            count = 0;
+            boxes.forEach(box => {
+                box.innerText = "";
+                box.disabled = false;
+            });
+            msgContainer.classList.remove("show");
+        };
+
+        boxes.forEach((box, index) => {
+            box.addEventListener("click", () => {
+                if (turnO) {
+                    box.innerText = first;
+                } else {
+                    box.innerText = second;
+                }
+                box.disabled = true;
+                turnO = !turnO;
+                count++;
+
+                let winner = checkWinner();
+                if (winner) {
+                    msgContainer.classList.add("show");
+                    msg.innerText = `${winner} wins! 👏👏👏👏`;
+                    boxes.forEach(box => box.disabled = true);
+                } else if (count === 9) {
+                    gameDraw();
+                }
+            });
+        });
+
+        resetBtn.addEventListener("click", resetGame);
+
+    </script>
+</body>
+</html>

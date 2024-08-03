@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/df8a27e888.js" crossorigin="anonymous"></script>
+    <style>
+       body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background: #DFF8EB;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: x-large;        }
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #79c97d;
+  font-weight: 800;
+}
+
+div {
+  background-color: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  width: 30%;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  background-color: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  height: 40px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #45A049;
+  transform: scale(1.05);
+}
+
+#main {
+  list-style-type: none;
+  padding: 0;
+  width: 320px;
+  margin-top: 20px;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+#main li {
+  background-color: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#main li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#allclear {
+  margin-top: 20px;
+  background-color: #45A049;
+  display: flex;
+  align-self: center;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#allclear:hover {
+  background-color: #79c97d;
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  #main {
+    width: 100%;
+  }
+
+  button, #allclear {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  div {
+    width: 80%;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+<a href="/index.html"> <i class="fa-solid fa-circle-left" id="back"></i></a>
+    <div>
+        <center>
+    <h2>To do list</h2>
+<input type="text" placeholder="Enter text" id="usertext">
+<button id="adding">Add To Do</button>
+
+
+<p id="asdf">
+
+
+</p>
+<br><br><br><br><br><br><br><br><br>
+<button id="allclear" onclick="foo()">Clear All</button>
+</center>
+</div>
+
+
+   <script>
+
+var usertext=document.getElementById("usertext")
+var btn=document.getElementById("adding")
+var p=document.getElementById("asdf")
+
+btn.addEventListener("click",function(){
+p.innerHTML+=  `<ul id="main"> <li id="slots"> ${usertext.value} <button id ="delete" onclick="dlt()">delete</button> <button id="edit" onclick="update()">edit</button></li></ul>`
+
+usertext.value=" "
+
+
+})
+var ul=document.getElementById("main")
+//"delete button"
+var delte =document.getElementById("delete") 
+
+function dlt(){
+console.log(event.target.parentNode.remove());
+
+}
+
+//"edit button"
+function update(){
+//    console.log(event.target.parentNode.innerHTML.nodevalue)
+//    var won=prompt("enter any text",)
+// console.log(event.target.parentNode.innerHTML= won)
+// console.dir(event.target.parentNode.innerHTML=won)
+
+// }
+var li=document.getElementById("slots")
+// var newText = prompt("Enter new text:", li.firstChild.textContent);
+// if (newText !== null) {
+//     li.firstChild.textContent = newText + ' ';
+
+// }
+
+var span = li.firstChild;
+var currentText = span.textContent.trim();
+
+
+var input = document.createElement("input");
+input.type = "text";
+input.value = currentText;
+       
+       var saveButton = document.createElement("button");
+       saveButton.textContent = "Save";
+
+      
+       li.insertBefore(input, span);
+       li.insertBefore(saveButton, span);
+       li.removeChild(span);
+
+       saveButton.addEventListener("click", function() {
+         var newText = input.value;
+
+         
+         var newSpan = document.createElement("span");
+         newSpan.textContent = newText + " ";
+
+         li.insertBefore(newSpan, input);
+         li.removeChild(input);
+         li.removeChild(saveButton);
+})
+}
+//"clear all button"
+var allclear=document.getElementById("allclear")
+
+function foo (){
+var get=document.childNodes[1].children[1].children[0].children[0].children[3]
+get.remove();
+};
+
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<body>
+    <h1>ALL Of My Projects</h1><br>
+
+    <div class="card-container">
+        <div class="card">
+
+            <div class="card-content">
+                <h2 class="card-title">To Do List</h2>
+                <p class="card-description">Manage your tasks efficiently with this to-do list application.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">             
+                    <a class="btn btn-secondary">Code→</a>
+                   <a href="./project/todolist.html"><button class="btn btn-primary">Explore</button></a> 
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Login Signup</h2>
+                <p class="card-description">A simple login and signup form with validation,storage and API Dropdown .</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    <a class="btn btn-secondary">Code→</a>
+                   <a href="./project/index.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Stopwatch</h2>
+                <p class="card-description">A basic stopwatch to track your activities.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    
+                    <a class="btn btn-secondary">Code→</a>
+                   <a href="#"><button class="btn btn-primary">Explore</button></a> 
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Calculator</h2>
+                <p class="card-description">A simple calculator for basic arithmetic operations.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    <a class="btn btn-secondary">Code→</a>
+                   <a href="./project/calculator.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Timer</h2>
+                <p class="card-description">A countdown timer for various uses.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-secondary">Code→</a>
+                    <button class="btn btn-primary">Explore</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Tic Tac Toe</h2>
+                <p class="card-description">Play the classic tic-tac-toe game against a friend.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    <a class="btn btn-secondary">Code→</a>
+                    <a href="./project/tictactoe.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Add to Cart</h2>
+                <p class="card-description">A demo for adding items to a shopping cart.</p>
+                <div class="card-image"></div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-secondary">Code→</a>
+                    <button class="btn btn-primary">Explore</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="app.js"></script>
+</body>

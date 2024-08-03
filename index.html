@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Projects</h1><br>
+
+    <div class="card-container">
+        <div class="card">
+
+            <div class="card-content">
+                <h2 class="card-title">Text Editor</h2>
+                <p class="card-description">Edit your text here</p>
+                <div class="card-image9"></div>
+                <div class="card-actions">             
+                    <a href="./project/code/texteditor.txt" class="btn btn-secondary">Code→</a>
+                   <a href="./project/texteditor.html"><button class="btn btn-primary">Explore</button></a> 
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-content">
+                <h2 class="card-title">To Do List</h2>
+                <p class="card-description">Manage your tasks efficiently with this to-do list application.</p>
+                <div class="card-image1"></div>
+                <div class="card-actions">             
+                    <a href="./project/code/todocode.txt" class="btn btn-secondary">Code→</a>
+                   <a href="./project/todolist.html"><button class="btn btn-primary">Explore</button></a> 
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Tic Tac Toe</h2>
+                <p class="card-description">Play the classic tic-tac-toe game against a friend.</p>
+                <div class="card-image6"></div>
+                <div class="card-actions">
+                    <a href="./project/code/tictaccode.txt"  class="btn btn-secondary">Code→</a>
+                    <a href="./project/tictactoe.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Login Signup</h2>
+                <p class="card-description">A simple login and signup form with validation,storage and API Dropdown .</p>
+                <div class="card-image2"></div>
+                <div class="card-actions">
+                    <a href="./project/code/signincode.txt" class="btn btn-secondary">Code→</a>
+                   <a href="./project/index.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Stopwatch</h2>
+                <p class="card-description">A basic stopwatch to track your activities.</p>
+                <div class="card-image3"></div>
+                <div class="card-actions">
+                    
+                    <a href="./project/code/stopcode.txt"class="btn btn-secondary">Code→</a>
+                   <a href="./project/code/stopcode.txt"><button class="btn btn-primary">Explore</button></a> 
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">Calculator</h2>
+                <p class="card-description">A simple calculator for basic arithmetic operations.</p>
+                <div class="card-image4"></div>
+            
+                <div class="card-actions">
+                    <a  href="./project/code/calcodee.txt"   class="btn btn-secondary">Code→</a>
+                   <a href="./project/calculator.html"><button class="btn btn-primary">Explore</button></a> 
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">API fetch Dropdown</h2>
+                <p class="card-description">A dropdown by fetching API</p>
+                <div class="card-image8"></div>
+                <div class="card-actions">
+                    <a href="./project/code/dashhboard.txt" class="btn btn-secondary">Code→</a>
+                    <a href="./project/dasshboard.html"><button class="btn btn-primary">Explore</button></a>
+                </div>
+            </div>
+        </div>
+
+      
+
+    <div id="particles-js"></div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.querySelector('.card');
+    const container = document.querySelector('.card-container');
+    const cardImage = document.querySelector('.card-image');
+
+    let isMouseOver = false;
+    let rotateX = 0;
+    let rotateY = 0;
+
+    function lerp(start, end, t) {
+        return start * (1 - t) + end * t;
+    }
+
+    function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+    }
+
+    function updateCardTransform() {
+        const transformString = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        card.style.transform = transformString;
+    }
+
+    function animate() {
+        if (!isMouseOver) {
+            rotateX = lerp(rotateX, 0, 0.05);
+            rotateY = lerp(rotateY, 0, 0.05);
+        }
+
+        updateCardTransform();
+        requestAnimationFrame(animate);
+    }
+
+    // Image here
+    // const imageURL = 'https://images.unsplash.com/photo-1719773188310-85c82542f677?q=80&w=2436&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+    // cardImage.style.backgroundImage = `url(${imageURL})`;
+
+
+
+
+
+
+    animate();
+});
+
+// upper code is for styling
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
